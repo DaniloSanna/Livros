@@ -1,0 +1,21 @@
+Desafio1 - UC8 - Lógica de Programação
+
+
+1° Exibir campos de Data Evento, Nome do Participante e Idade.
+2° Coletar Data evento
+3° Coletar Idade
+4° Coletar Nome
+
+5° Verificar: Se a data do evento é inferior(menor) a hoje.
+6° Se sim, informar erro, informar mensagem ("Cadastro não será permitido por data inválida.") e recomeçar fluxo.
+
+7° Verificar: Se Idade é menor que 18.
+8° Se sim, informar erro, informar mensagem ("Cadastro não é permitido pela idade.") e recomeçar fluxo.
+
+9° Listar quantidade de pessoas e palestrantes por evento.
+
+10° Verficar: Se quantidade de membros da lista for menor a 100.
+11° Se sim, adicionar participante a lista.
+12° Se não, informar erro, informar mensagem ("Cadastro não será permitido por ter excedido o limite.").
+
+13° Recomeçar fluxo.

@@ -1,0 +1,39 @@
+Desafio2 - UC8 - Lógica de Programação
+
+Programa Nome: UC8_Lista_Evento {
+
+	Variável String: nome;
+	Variável Number: idade;
+	Variável Data: data;
+	Variável Lista: participantes;
+
+	While (participantes.size <= 100) {
+
+		Imprima: "Por favor, preencha os dados abaixo:";
+	
+		Imprima: "Informe Data do evento";
+		Inserir valor em: data;
+
+		Imprima "Informe o nome do participante";
+		Inserir valor em: nome;
+
+		Imprima "Informe a idade do participante";
+		Inserir valor em: idade;
+
+		if (data < hoje){
+			Imprima: "Cadastro não será permitido por data inválida.";
+		}
+
+		if (idade < 18){
+			Imprima: "Cadastro não é permitido pela idade.";
+		}	
+	
+		if (participantes.size <= 100){
+			Adicionar em participantes: data, nome, idade;
+		}else{
+			Imprima: "Cadastro não será permitido por ter excedido o limite.";
+		}
+	
+		Imprima: participantes;
+	}
+}
