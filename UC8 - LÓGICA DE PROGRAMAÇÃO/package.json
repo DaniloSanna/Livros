@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "arraylist": "^0.1.0",
     "moment": "^2.29.1",
     "readline-sync": "^1.4.10"
   }

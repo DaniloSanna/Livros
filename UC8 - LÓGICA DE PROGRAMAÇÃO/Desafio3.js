@@ -1,3 +1,7 @@
+//console: npm install readline-sync
+//console: npm install moment
+//console: npm install arraylist
+
 class participante {
   constructor(nome, idade){
    this.nome = nome;
@@ -6,6 +10,10 @@ class participante {
   get nome() {
     return nome;
   }
+
+
+
+  
   get idade() {
     return idade;
   }
@@ -21,25 +29,27 @@ class participante {
 
   }
 
-//console: npm install readline-sync
-//console: npm install moment
 var readlineSync = require('readline-sync');
 const moment = require('moment');
 let dtformat = new Intl.DateTimeFormat('pt-BR');
 let date1 = new Date(moment(new Date(), 'DD/MM/YYYY'));
 var participantes = new Array([100]);
+//var participantes = require('ArrayList');
 
-while (participantes.length<=3){
+while (participantes.length<=2){
 
 
 //Coletando Data.
 //var dataevento = new Date(moment(readlineSync.question('Insira a data do Evento: '), 'DD/MM/YYYY'));
 
+console.log();
+console.log("--- Inserindo Participante: " + participantes.length + " ---");
+
 // Coletando nome.
-var nome = readlineSync.question('Qual é o nome do participante: ');
+var nome = readlineSync.question('Qual e o nome do participante: ');
 
 // Coletando idade.
-var idade = Number(readlineSync.question('Qual é a idade do participante: '));
+var idade = Number(readlineSync.question('Qual e a idade do participante: '));
 
 //if( date1 > date2 ){
   //console.log("Data Válida");
@@ -50,6 +60,7 @@ var idade = Number(readlineSync.question('Qual é a idade do participante: '));
     //console.log("Valor de PA: " + pa.consoleLog);
   
     participantes.push(new participante(nome, idade));
+    //participantes.push('x');
 
   }else{
     console.log("Idade Inválida");
@@ -59,7 +70,7 @@ var idade = Number(readlineSync.question('Qual é a idade do participante: '));
     console.log("Data Inválida");
   }
 */
-console.log("---------Valor Array---------");
+console.log("---------Impressão Lista:---------");
 for (var i = 1; i<participantes.length; i++){
     //console.log(i + " - " + participantes[i]);
     console.log(i + " - " + participantes[i].consoleLog);
