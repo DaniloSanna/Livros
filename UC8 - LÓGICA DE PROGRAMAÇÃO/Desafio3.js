@@ -32,61 +32,61 @@ class participante {
 
   }
 
-const limiteparticipantes = 100;
-var readlineSync = require('readline-sync');
-const moment = require('moment');
-let dtformat = new Intl.DateTimeFormat('pt-BR');
-let datehoje = new Date(moment(new Date(), 'DD/MM/YYYY'));
-var participantes = [];
-
-while (participantes.length <= (limiteparticipantes+1) ){
-    
-  console.log();
-  console.log("--- Inserindo Participante: " + (participantes.length+1) + " ---");
-  console.log();
-
-  //Coletando Data.
-  var dataevento = new Date(moment(readlineSync.question('Insira a data do Evento: '), 'DD/MM/YYYY'));
-
-  if( datehoje < dataevento ){
+  const limiteparticipantes = 100;
+  const moment = require('moment');
+  var readlineSync = require('readline-sync');
   
-      // Coletando nome.
-      var nome = readlineSync.question('Qual e o nome do participante: ');
+  let datehoje = new Date(moment(new Date(), 'DD/MM/YYYY'));
+  var participantes = [];
 
-      // Coletando idade.
-      var idade = Number(readlineSync.question('Qual e a idade do participante: '));
-
-    if( idade >= 18 ){
-      participantes.push(new participante(nome, idade, (participantes.length+1) ));
+  while (participantes.length <= (limiteparticipantes+1) ){
       
-      console.log();
-      console.log("---------Impressão Lista:---------");
-      participantes.forEach((i) => {
-        console.log(i.consoleLog);
-      });
+    console.log();
+    console.log("--- Inserindo Participante: " + (participantes.length+1) + " ---");
+    console.log();
+
+    //Coletando Data.
+    var dataevento = new Date(moment(readlineSync.question('Insira a data do Evento: '), 'DD/MM/YYYY'));
+
+    if( datehoje < dataevento ){
+    
+        // Coletando nome.
+        var nome = readlineSync.question('Qual e o nome do participante: ');
+
+        // Coletando idade.
+        var idade = Number(readlineSync.question('Qual e a idade do participante: '));
+
+      if( idade >= 18 ){
+
+        if(participantes.length == limiteparticipantes ){
+          console.log('////////////////////////////////////////////////////////////////////////');
+          console.log('Cadastro não será permitido por ter excedido o limite.');
+          console.log("------------------------------------------------------------------------");
+          console.log();
+          break;
+        }
+        participantes.push(new participante(nome, idade, (participantes.length+1) ));
+        
+        console.log();
+        console.log("---------Impressão Lista:---------");
+        participantes.forEach((i) => {
+          console.log(i.consoleLog);
+        });
+
+      }else{
+        console.log();
+        console.log('Cadastro não é permitido pela idade.');
+        console.log("------------------------------------------------------------------------");
+        console.log();
+      }
 
     }else{
       console.log();
-      console.log('Cadastro não é permitido pela idade.');
+      console.log('Cadastro não será permitido por data inválida.');
       console.log("------------------------------------------------------------------------");
       console.log();
-    }
-
-  }else{
-    console.log();
-    console.log('Cadastro não será permitido por data inválida.');
-    console.log("------------------------------------------------------------------------");
-    console.log();
-    }
-
-    if(participantes.length == limiteparticipantes ){
-      console.log('////////////////////////////////////////////////////////////////////////');
-      console.log('Cadastro não será permitido por ter excedido o limite.');
-      console.log("------------------------------------------------------------------------");
-      console.log();
-      break;
-    }
-}
+      }   
+  }
 
 
 console.log();

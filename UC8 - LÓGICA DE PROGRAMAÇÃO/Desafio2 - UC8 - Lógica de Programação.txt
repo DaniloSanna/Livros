@@ -5,35 +5,76 @@ Programa Nome: UC8_Lista_Evento {
 	Variável String: nome;
 	Variável Number: idade;
 	Variável Data: data;
+	Variável Data: hoje = HOJE();
 	Variável Lista: participantes;
+	Constante Number: limiteparticipantes;
 
-	While (participantes.size <= 100) {
+	While (participantes.size <= (limiteparticipantes+1) ) {
 
-		Imprima: "Por favor, preencha os dados abaixo:";
+		Imprima: 'Por favor, preencha os dados abaixo:';
 	
-		Imprima: "Informe Data do evento";
+		Imprima: 'Informe Data do evento';
 		Inserir valor em: data;
 
-		Imprima "Informe o nome do participante";
-		Inserir valor em: nome;
 
-		Imprima "Informe a idade do participante";
-		Inserir valor em: idade;
+		if (data > hoje){
 
-		if (data < hoje){
-			Imprima: "Cadastro não será permitido por data inválida.";
-		}
+			Imprima 'Informe o nome do participante';
+			Inserir valor em: nome;
 
-		if (idade < 18){
-			Imprima: "Cadastro não é permitido pela idade.";
-		}	
+			Imprima 'Informe a idade do participante';
+			Inserir valor em: idade;
+
+			if (idade > 18){
 	
-		if (participantes.size <= 100){
-			Adicionar em participantes: data, nome, idade;
+				if (participantes.size = limiteparticipantes){
+					Imprima: 'Cadastro não será permitido por ter excedido o limite.';
+					Sair do While;	
+				}
+				Adicionar em participantes: data, nome, idade, posicao;
+				Imprima: participantes;
+			}else{
+				Imprima: 'Cadastro não é permitido pela idade.';
+			}
 		}else{
-			Imprima: "Cadastro não será permitido por ter excedido o limite.";
+			Imprima: 'Cadastro não será permitido por data inválida.';
 		}
-	
-		Imprima: participantes;
 	}
+
+	Criar Classe participante{
+		Variável String: nome;
+		Variável Number: idade;
+		Variável Number: posicao;
+
+		metodo construtor de participante(nome, idade, posicao){
+			This.nome = nome;
+			This.idade = idade;
+			This.posicao = posicao
+		}
+		metodo get nome{
+			return nome;	
+		}
+		metodo get idade{
+			return idade;
+		}
+		metodo get posicao{
+			return posicao;
+		}
+		metodo sobrescreve nome (string){
+			This.nome = string;	
+		}
+		metodo sobrescreve idade (number){
+			This.idade = number;
+		}
+		metodo sobrescreve posicao (number){
+			This.posicao = number;
+		}
+		metodo consoleLog (){
+		  return (this._posicao +'° -> ' + 'Nome: ' + this._nome + ' - Idade: ' + this._idade);
+		}
+
+	}
+
+
+
 }
