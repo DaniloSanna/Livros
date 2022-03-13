@@ -1,79 +1,99 @@
 //console: npm install readline-sync
 //console: npm install moment
-//console: npm install arraylist
 
 class participante {
-  constructor(nome, idade){
-   this.nome = nome;
-   this.idade = idade;
+  constructor(nome, idade, posicao){
+   this._nome = nome;
+   this._idade = idade;
+   this._posicao = posicao;
+
   }
   get nome() {
-    return nome;
+    return this._nome;
   }
-
-
-
-  
   get idade() {
-    return idade;
+    return this._idade;
   }
-  set nome(valor) {
-    nome = valor;
-  }
-  set idade(valor) {
-    idade = valor;
+  get posicao() {
+    return this._posicao;
   }
   get consoleLog(){
-    return ("Nome: " + nome + " - Idade: " + idade);
+    return (this._posicao +'° -> ' + 'Nome: ' + this._nome + ' - Idade: ' + this._idade);
+  }
+  set nome(string) {
+    this._nome = string;
+  }
+  set idade(numeic) {
+    this._idade = numeic;
+  }
+  set posicao(numeic) {
+    this._posicao = numeic;
   }
 
   }
 
+const limiteparticipantes = 100;
 var readlineSync = require('readline-sync');
 const moment = require('moment');
 let dtformat = new Intl.DateTimeFormat('pt-BR');
-let date1 = new Date(moment(new Date(), 'DD/MM/YYYY'));
-var participantes = new Array([100]);
-//var participantes = require('ArrayList');
+let datehoje = new Date(moment(new Date(), 'DD/MM/YYYY'));
+var participantes = [];
 
-while (participantes.length<=2){
+while (participantes.length <= (limiteparticipantes+1) ){
+    
+  console.log();
+  console.log("--- Inserindo Participante: " + (participantes.length+1) + " ---");
+  console.log();
 
+  //Coletando Data.
+  var dataevento = new Date(moment(readlineSync.question('Insira a data do Evento: '), 'DD/MM/YYYY'));
 
-//Coletando Data.
-//var dataevento = new Date(moment(readlineSync.question('Insira a data do Evento: '), 'DD/MM/YYYY'));
-
-console.log();
-console.log("--- Inserindo Participante: " + participantes.length + " ---");
-
-// Coletando nome.
-var nome = readlineSync.question('Qual e o nome do participante: ');
-
-// Coletando idade.
-var idade = Number(readlineSync.question('Qual e a idade do participante: '));
-
-//if( date1 > date2 ){
-  //console.log("Data Válida");
-  if( idade >= 18 ){
-    //console.log("Idade Válida");
-    //console.log("----- ADICIONAR-----");
-    //var pa = new participante(nome, idade);
-    //console.log("Valor de PA: " + pa.consoleLog);
+  if( datehoje < dataevento ){
   
-    participantes.push(new participante(nome, idade));
-    //participantes.push('x');
+      // Coletando nome.
+      var nome = readlineSync.question('Qual e o nome do participante: ');
+
+      // Coletando idade.
+      var idade = Number(readlineSync.question('Qual e a idade do participante: '));
+
+    if( idade >= 18 ){
+      participantes.push(new participante(nome, idade, (participantes.length+1) ));
+      
+      console.log();
+      console.log("---------Impressão Lista:---------");
+      participantes.forEach((i) => {
+        console.log(i.consoleLog);
+      });
+
+    }else{
+      console.log();
+      console.log('Cadastro não é permitido pela idade.');
+      console.log("------------------------------------------------------------------------");
+      console.log();
+    }
 
   }else{
-    console.log("Idade Inválida");
-  }
-/*
-}else{
-    console.log("Data Inválida");
-  }
-*/
-console.log("---------Impressão Lista:---------");
-for (var i = 1; i<participantes.length; i++){
-    //console.log(i + " - " + participantes[i]);
-    console.log(i + " - " + participantes[i].consoleLog);
+    console.log();
+    console.log('Cadastro não será permitido por data inválida.');
+    console.log("------------------------------------------------------------------------");
+    console.log();
+    }
 
+    if(participantes.length == limiteparticipantes ){
+      console.log('////////////////////////////////////////////////////////////////////////');
+      console.log('Cadastro não será permitido por ter excedido o limite.');
+      console.log("------------------------------------------------------------------------");
+      console.log();
+      break;
+    }
 }
-}
+
+
+console.log();
+console.log("---------Lista Completa:---------");
+participantes.forEach((i) => {
+  console.log(i.consoleLog);
+});
+console.log();
+console.log("---------------------------------------------Fim do Programa---------------------------------------------");
+console.log();
