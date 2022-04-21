@@ -1,0 +1,27 @@
+.main-container{
+    width: 996;
+    height: 616px;
+}
+.conteudo-container{
+    width: 100%;
+    border: 1px solid;
+    float: left;
+    border-color: aqua;
+}
+.botoes-container{
+    width: 20%;
+    border: 1px solid;
+    border-color: blueviolet;
+}
+.botoes-container ul, .botoes-container ul li {
+    display:inline-block;
+}
+.texto-container{
+    width: 30%;
+    border: 1px solid;
+    border-color: brown;
+}
+.videos-container{
+    border: 1px solid;
+    border-color: bisque;
+}
