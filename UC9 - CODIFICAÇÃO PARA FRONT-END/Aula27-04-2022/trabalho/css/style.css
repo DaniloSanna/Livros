@@ -1,0 +1,28 @@
+/* rgb(22,67,160) */
+:root{
+    --azul: rgb(22,67,160);
+}
+.bg--azul{
+    background: var(--azul);
+    color: white;
+    padding:0;
+}
+.bg--azul a{
+    color: white;
+}
+.logo-texto{
+    font-size: 24px;
+}
+
+.bg--azul a:hover{
+    color: white;
+}
+
+.img_logo{
+    width:70px;
+    height:70px;
+}
+
+.espaco1{
+    margin-top: 100px;
+}
