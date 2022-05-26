@@ -1,0 +1,44 @@
+#banner-home{
+    height:350px;
+    margin: 0 auto;
+    background-color: #0660ac;
+    background-image: linear-gradient(135deg, black, rgba(15,80,136, 100%));
+}
+
+#banner-home img{
+    width:100%;
+    height: 800px;
+}
+
+#banner-home h1{
+    font-size:14px;
+    width:40%;
+    font-weight: 500;
+    position:absolute;
+    top: 270px;
+    right: 32%;
+    text-align: center;
+    color: white;
+}
+#banner-home p{
+    font-size: 14px;
+    margin-bottom: 40px;
+    width: 75%;
+    position:absolute;
+    top: 300px;
+    right: 12%;
+    text-align: center;
+    color: white;
+}
+
+#banner-home .btn{
+    position: absolute;
+    top: 210px;
+    right:50%;
+    box-shadow: none;
+    border: none;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    background: #a6ccec;
+}
