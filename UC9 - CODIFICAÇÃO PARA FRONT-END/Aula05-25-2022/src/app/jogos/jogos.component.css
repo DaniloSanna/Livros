@@ -1,0 +1,36 @@
+*{
+    font-family: sans-serif;
+}
+.container{
+    padding: 0;
+    margin: 0 auto;
+    width: 100vw;
+    background: gray;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+.container table, .container table tr, .container table tr td, .container table thead{
+    background: white;
+}
+.container table{
+    width: 75vw;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container button{
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    background: yellow;
+}
+
+.container button:hover{
+    transform: scale(1.1);
+    background: orange;
+    color: white;
+}
