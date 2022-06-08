@@ -1,0 +1,57 @@
+<header>
+    <nav>
+        <a routerLink="/"><img src="../../assets/img/logo.png"></a>
+
+        <form role="search" class="search">
+            <input type="search" placeholder="Search" aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+
+        <button class="menu_main" mat-button [matMenuTriggerFor]="games">Games</button>
+        <button class="menu_main" mat-button [matMenuTriggerFor]="computadores">Computadores</button>
+        <button class="menu_main" mat-button [matMenuTriggerFor]="perifericos">Periféricos</button>
+        <button class="menu_main" mat-button>Contato</button>
+        <button class="menu_main" mat-button routerLink="/login">Login</button>
+        <img src="../../assets/img/i-cart.png">
+    </nav>
+</header>
+
+
+<!-- Sub Menu Opções -->
+<mat-menu #games="matMenu">
+    <button class="menu_item" mat-menu-item>Computador</button>
+    <button class="menu_item" mat-menu-item [matMenuTriggerFor]="playstation">Playstation</button>
+    <button class="menu_item" mat-menu-item [matMenuTriggerFor]="xbox">Xbox</button>
+</mat-menu>
+
+<mat-menu #perifericos="matMenu">
+    <button class="menu_item" mat-menu-item>Mouse</button>
+    <button class="menu_item" mat-menu-item>Teclado</button>
+    <button class="menu_item" mat-menu-item>Caixa de Som</button>
+    <button class="menu_item" mat-menu-item>Headsets</button>
+    <button class="menu_item" mat-menu-item>Padmouse</button>
+</mat-menu>
+
+<mat-menu #computadores="matMenu">
+    <button class="menu_item" mat-menu-item>Placa Rede</button>
+    <button class="menu_item" mat-menu-item>Placa Video</button>
+    <button class="menu_item" mat-menu-item>Placa RAM</button>
+    <button class="menu_item" mat-menu-item>Placa Audio</button>
+    <button class="menu_item" mat-menu-item>HD e SSD</button>
+    <button class="menu_item" mat-menu-item>Refrigeração</button>
+</mat-menu>
+
+<mat-menu #playstation="matMenu">
+    <button class="menu_item" mat-menu-item>PS1</button>
+    <button class="menu_item" mat-menu-item>PS2</button>
+    <button class="menu_item" mat-menu-item>PS3</button>
+    <button class="menu_item" mat-menu-item>PS4</button>
+    <button class="menu_item" mat-menu-item>PS5</button>
+</mat-menu>
+
+<mat-menu #xbox="matMenu">
+    <button class="menu_item" mat-menu-item>Xbox</button>
+    <button class="menu_item" mat-menu-item>Xbox 360</button>
+    <button class="menu_item" mat-menu-item>Xbox One</button>
+    <button class="menu_item" mat-menu-item>Xbox Serie X/S</button>
+</mat-menu>
