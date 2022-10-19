@@ -1,3 +1,0 @@
-# SENAI
-
-readme de exemplo
