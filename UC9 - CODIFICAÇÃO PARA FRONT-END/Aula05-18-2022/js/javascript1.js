@@ -1,1 +1,0 @@
-$('#ola').text("Olá! Bem vindo ao Jquery");
